@@ -1,0 +1,19 @@
+version: "3.5"
+services:
+  build-page:
+    image: python
+    volumes:
+      - ./:/src
+    command: bash -c "pip install jupyter-book && jupyter-book build src"
+
+  development:
+    container_name: development
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./docs:/docs
+      - ./settings/:/home/.jupyter/lab/user-settings
+    ports:
+      - "8888:8888" 
+    entrypoint: jupyter lab --ip=0.0.0.0  --allow-root  --notebook-dir=/docs/
