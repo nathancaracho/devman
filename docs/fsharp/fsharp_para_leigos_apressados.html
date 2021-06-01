@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FSharp ~~da xambração~~ para leigos e apressados</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Devman" href="../../readme.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   Devman
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fsharp
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     FSharp
+    </span>
+   </code>
+   ~~da xambração~~ para leigos e apressados
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/fsharp/fsharp_para_leigos_apressados.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/nathancaracho/devman"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/nathancaracho/devman/issues/new?title=Issue%20on%20page%20%2Fdocs/fsharp/fsharp_para_leigos_apressados.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/nathancaracho/devman/main?urlpath=tree/docs/docs/fsharp/fsharp_para_leigos_apressados.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-go">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     let
+    </span>
+   </code>
+   ’s go
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#os-tipos">
+     Os tipos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#usando-a-inferencia">
+       <em>
+        Usando a inferência
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#declarando-o-tipo">
+       <em>
+        Declarando o tipo
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#f-de-funcao">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F
+    </span>
+   </code>
+   de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F
+    </span>
+   </code>
+   unção
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-face-de-uma-funcao">
+     A face de uma
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       F
+      </span>
+     </code>
+     unção
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#funcoes-nomeadas">
+       Funções nomeadas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assinatura">
+     Assinatura
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escopo-lexico-ou-estatico">
+     Escopo léxico ou estático
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cade-as-classes">
+   Cadê as Classes?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intero-inter-funciona-com-net">
+   Intero… Inter… Funciona com
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .Net
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div style="text-align:center">
+    <img src="https://imgix.bustle.com/uploads/image/2020/12/31/64c49003-0006-43c8-b2f6-04d712b41af0-screenshot-2020-12-31-at-153141.png?w=2000&h=640&fit=crop&crop=faces&auto=format%2Ccompress"/>
+</div><div class="section" id="fsharp-da-xambracao-para-leigos-e-apressados">
+<h1><code class="docutils literal notranslate"><span class="pre">FSharp</span></code> ~~da xambração~~ para leigos e apressados<a class="headerlink" href="#fsharp-da-xambracao-para-leigos-e-apressados" title="Permalink to this headline">¶</a></h1>
+<p>O CSharp do futuro</p>
+<hr class="docutils" />
+<p>FSharp é uma linguaguem de propósito geral, <em><strong>primeiramente funcional</strong></em> com uma sintaxe leve e pouco <code class="docutils literal notranslate"><span class="pre">ruídosa</span></code> faz com que o foco seja no problema e não em detalhes de sintaxe.</p>
+<div class="section" id="let-s-go">
+<h2><code class="docutils literal notranslate"><span class="pre">let</span></code>’s go<a class="headerlink" href="#let-s-go" title="Permalink to this headline">¶</a></h2>
+<p>A palavra chave <code class="docutils literal notranslate"><span class="pre">let</span></code> responsável pela associação de valores em variáveis em <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> que são por padrão <em><strong>imutáveis</strong></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">xambre</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">printf</span> <span class="s">&quot;se liga no xambre: %i&quot;</span> <span class="n">xambre</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div>
+    <div id='dotnet-interactive-this-cell-40.Microsoft.DotNet.Interactive.Http.HttpPort' style='display: none'>
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+    <script type='text/javascript'>
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://172.18.0.2:1000/", "http://127.0.0.1:1000/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '40.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>se liga no xambre: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p><em><strong>Ponto importante ⚠ :</strong></em><br />
+O operador <code class="docutils literal notranslate"><span class="pre">=</span></code> só pode ser usado para a <strong>primeira</strong> atribuição de valores, caso a variável seja <strong>mutável</strong>, deve ser utilizado o operador <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> que vamos chamar de <em>“atribuídor”</em>.<br />
+<strong>Como sabemos se a variável é mutável?</strong><br />
+Pela palavra chave <code class="docutils literal notranslate"><span class="pre">mutable</span></code> na declaração da variável</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">mutable</span> <span class="n">xambreOne</span>  <span class="o">=</span> <span class="mi">1</span> 
+<span class="n">xambreOne</span> <span class="o">&lt;-</span> <span class="mi">2</span>
+<span class="n">printf</span> <span class="s">&quot;se liga no xambre: %i&quot;</span> <span class="n">xambreOne</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>se liga no xambre: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Mas se tentarmos alterar uma variável que não é <code class="docutils literal notranslate"><span class="pre">mutável</span></code> o que acontece?</strong></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Typecheck error This value is not mutable. Consider using the mutable keyword, e.g. 
+&#39;let mutable variavel = expression&#39;.
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">notMutableXambre</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">notMutableXambre</span> <span class="o">&lt;-</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>input.fsx (2,1)-(2,23) typecheck error This value is not mutable. Consider using the mutable keyword, e.g. &#39;let mutable notMutableXambre = expression&#39;.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="os-tipos">
+<h3>Os tipos<a class="headerlink" href="#os-tipos" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">FSharp</span></code> é uma linguágem estáticamente tipada, onde o compilador infere o tipo beseado no valor e possuí básicos como <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code> e um tipo especial o <code class="docutils literal notranslate"><span class="pre">unit</span></code>, que não tem equivalência com <code class="docutils literal notranslate"><span class="pre">C#</span></code>.</p>
+<blockquote>
+<div><p><strong>O que é o tipo unit?</strong><br />
+O tipo <code class="docutils literal notranslate"><span class="pre">unit</span></code> é utilizado como um tipo “vazio” e indica a ausência de um valor real, normalmente utilizado em funções que nâo tem um retorno.</p>
+</div></blockquote>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">printXambre</span> <span class="o">=</span> <span class="c1">//unit</span>
+    <span class="n">printf</span> <span class="s">&quot;xambre&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Mas é possível indicar qual o tipo da variável?</strong><br />
+Sim, basta adicionar o operador <code class="docutils literal notranslate"><span class="pre">:</span></code> logo após o nome da variável.</p>
+</div></blockquote>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">xambre</span> <span class="o">:</span> <span class="n">int</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="section" id="usando-a-inferencia">
+<h4><em>Usando a inferência</em><a class="headerlink" href="#usando-a-inferencia" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">intXambre</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">let</span> <span class="nv">boolXambre</span> <span class="o">=</span> <span class="k">true</span>
+<span class="k">let</span> <span class="nv">stringXambre</span> <span class="o">=</span> <span class="s">&quot;xambre&quot;</span>
+
+<span class="n">printf</span> <span class="s">&quot;%s&quot;</span> <span class="o">(</span><span class="n">intXambre</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+<span class="n">printf</span> <span class="s">&quot;%s&quot;</span> <span class="o">(</span><span class="n">boolXambre</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+<span class="n">printf</span> <span class="s">&quot;%s&quot;</span> <span class="o">(</span><span class="n">stringXambre</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="declarando-o-tipo">
+<h4><em>Declarando o tipo</em><a class="headerlink" href="#declarando-o-tipo" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">intXambre</span> <span class="o">:</span><span class="n">int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">let</span> <span class="nv">boolXambre</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="k">true</span>
+<span class="k">let</span> <span class="nv">stringXambre</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">=</span> <span class="s">&quot;xambre&quot;</span>
+
+<span class="n">printf</span> <span class="s">&quot;%s&quot;</span> <span class="o">(</span><span class="n">intXambre</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+<span class="n">printf</span> <span class="s">&quot;%s&quot;</span> <span class="o">(</span><span class="n">boolXambre</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+<span class="n">printf</span> <span class="s">&quot;%s&quot;</span> <span class="o">(</span><span class="n">stringXambre</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-de-funcao">
+<h2><code class="docutils literal notranslate"><span class="pre">F</span></code> de <code class="docutils literal notranslate"><span class="pre">F</span></code>unção<a class="headerlink" href="#f-de-funcao" title="Permalink to this headline">¶</a></h2>
+<p>Em <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> as funções são de <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function">primeira classe</a>, ou seja, podem ser utilizadas como parâmetro, como retorno ou até como valor.</p>
+<div class="section" id="a-face-de-uma-funcao">
+<h3>A face de uma <code class="docutils literal notranslate"><span class="pre">F</span></code>unção<a class="headerlink" href="#a-face-de-uma-funcao" title="Permalink to this headline">¶</a></h3>
+<p>(👁👃👁)</p>
+<hr class="docutils" />
+<p>Existem basicamente dois tipos de declarações funções a <code class="docutils literal notranslate"><span class="pre">funções</span> <span class="pre">nomeadas</span></code> e as <code class="docutils literal notranslate"><span class="pre">funções</span> <span class="pre">anônimas</span></code>.</p>
+<div class="section" id="funcoes-nomeadas">
+<h4>Funções nomeadas<a class="headerlink" href="#funcoes-nomeadas" title="Permalink to this headline">¶</a></h4>
+<p>As funções nomeadas se utilizam da palavra chave <code class="docutils literal notranslate"><span class="pre">let</span></code>, o <code class="docutils literal notranslate"><span class="pre">nome</span></code> da função seguido dos parâmetros ou do operador <code class="docutils literal notranslate"><span class="pre">=</span></code> e por fim o <code class="docutils literal notranslate"><span class="pre">corpo</span> <span class="pre">da</span> <span class="pre">função</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">//int -&gt; int -&gt; int</span>
+<span class="k">let</span> <span class="nv">sumXambres</span> <span class="n">a</span> <span class="n">b</span> <span class="o">=</span>
+    <span class="n">printf</span> <span class="s">&quot;the a type is: %s </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+    <span class="n">printf</span> <span class="s">&quot;the abtype is: %s&quot;</span> <span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="n">GetType</span><span class="bp">()</span><span class="o">.</span><span class="n">Name</span><span class="o">)</span>
+    <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">sumXambres</span> <span class="mi">1</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Vamos entender a anatômia de uma função</strong></em></p>
+<p>💀 - <em><strong>A declaração</strong></em><br />
+A primeira linha é responsável pela assinatura de uma função nomeada, que consiste da palavra chave <strong><code class="docutils literal notranslate"><span class="pre">let</span></code></strong> o <strong><code class="docutils literal notranslate"><span class="pre">nome</span> <span class="pre">da</span> <span class="pre">função</span></code></strong> que segue o padrão <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Casing</a> e é seguido ou não pela por seus parâmetros.</p>
+<blockquote>
+<div><p><em><strong>Inferência de tipos</strong></em><br />
+A inferência em <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> consegue saber, na maioria das vezes, qual é o tipo do parâmetro baseado em como aquele parâmetro é usado.<br />
+No exemplo á cima os parâmetros <code class="docutils literal notranslate"><span class="pre">a</span></code> e <code class="docutils literal notranslate"><span class="pre">b</span></code> são somados e logo na utilização da função <code class="docutils literal notranslate"><span class="pre">sumXambres</span></code> são passados os valores <strong>1</strong> e <strong>2</strong> logo os parâmetros são do tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> e retorno também.</p>
+</div></blockquote>
+<p>🦴 - <em><strong>O corpo</strong></em><br />
+O corpo pode ser composto de apenas uma linha, que ficar na frente da assinatura, ou pode ter varias linhas seguindo a <a class="reference external" href="https://fsharpforfunandprofit.com/posts/fsharp-syntax/">regra de identação</a>.</p>
+<p><em><strong>Função de uma linha</strong></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">//int -&gt; int -&gt; int</span>
+<span class="k">let</span> <span class="nv">oneLineXambrado</span> <span class="n">first</span> <span class="n">second</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="n">second</span>
+
+<span class="n">oneLineXambrado</span> <span class="mi">3</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Função de multiplas Linhas</strong></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// int -&gt; string</span>
+<span class="k">let</span> <span class="nv">multiplesLinesXambrado</span> <span class="o">=</span>           <span class="c1">//─────⯈ assinatura </span>
+    <span class="k">let</span> <span class="nv">addXambre</span> <span class="n">a</span> <span class="o">=</span>                  <span class="c1">//──┐</span>
+        <span class="k">match</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">with</span>               <span class="c1">//  |</span>
+        <span class="o">|</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="s">&quot;yes, is a xambre&quot;</span>      <span class="c1">//  |</span>
+        <span class="o">|</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="s">&quot;not, is not a xambre&quot;</span>  <span class="c1">//  ├──⯈ corpo</span>
+                                       <span class="c1">//  |</span>
+    <span class="n">addXambre</span>                          <span class="c1">//──┘</span>
+
+<span class="c1">//int -&gt; unit</span>
+<span class="k">let</span> <span class="nv">isXambrado</span> <span class="o">=</span>                       <span class="c1">//─────⯈ assinatura</span>
+    <span class="n">multiplesLinesXambrado</span>             <span class="c1">//──┐</span>
+    <span class="o">&gt;&gt;</span> <span class="n">printf</span> <span class="s">&quot;was xambrando? %s&quot;</span>      <span class="c1">//──┘──⯈ corpo</span>
+
+<span class="mi">1</span> <span class="o">|&gt;</span> <span class="n">isXambrado</span>
+<span class="n">isXambrado</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como uma linguagem pouco ruidosa <code class="docutils literal notranslate"><span class="pre">Fsharp</span></code> não usa <code class="docutils literal notranslate"><span class="pre">{}</span></code> para indicar o corpo das funções e sim identações, assim como em <code class="docutils literal notranslate"><span class="pre">python</span></code>. No caso abaixo temos uma função <code class="docutils literal notranslate"><span class="pre">multiplesLinesXambrado</span></code> que tem em seu corpo outra função <code class="docutils literal notranslate"><span class="pre">addXambre</span></code> por isso temos duas identações a primeira representada pelo ░ que representa o corpo da função <code class="docutils literal notranslate"><span class="pre">multiplesLinesXambrado</span></code> e a segunda ▒ que representa o corpo da função <code class="docutils literal notranslate"><span class="pre">addXambre</span></code>.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span>// int -&gt; string
+let multiplesLinesXambrado =           //─────⯈ assinatura 
+░░░░let addXambre a =                  //──┐
+░░░░▒▒▒▒match a % 2 with               //  |
+░░░░▒▒▒▒| 0 -&gt; &quot;yes, is a xambre&quot;      //  |
+░░░░▒▒▒▒| _ -&gt; &quot;not, is not a xambre&quot;  //  ├──⯈ corpo
+░░░░                                   //  |
+░░░░addXambre                          //──┘
+</pre></div>
+</div>
+<blockquote>
+<div><p><em><strong>Ponto importante ⚠ :</strong></em><br />
+Não confunda <code class="docutils literal notranslate"><span class="pre">corpo</span> <span class="pre">da</span> <span class="pre">função</span></code> com <code class="docutils literal notranslate"><span class="pre">escopo</span> <span class="pre">léxico</span></code>, mesmo que o corpo de uma função seja um <code class="docutils literal notranslate"><span class="pre">escopo</span> <span class="pre">léxico</span></code> não significa que seja a única maneira de criar um escopo em <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> então para facilitar vamos pensar apenas na estrutura da função neste momento.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="assinatura">
+<h3>Assinatura<a class="headerlink" href="#assinatura" title="Permalink to this headline">¶</a></h3>
+<p>A assinatura básicamente quais os parâmetros e retornos de uma função, podendo ser ilustrada como <code class="docutils literal notranslate"><span class="pre">'a</span> <span class="pre">-&gt;</span> <span class="pre">'b</span></code>. Essa nomenclatura é a mesma utilizada para ilustrar funções matemáticas e mostra que o conjunto <code class="docutils literal notranslate"><span class="pre">'a</span></code> está sendo <code class="docutils literal notranslate"><span class="pre">mapeado</span> <span class="pre">(-&gt;)</span></code> para o conjunto <code class="docutils literal notranslate"><span class="pre">'b</span></code>, vamos ver o mesmo exemplo utilizando tipos primitivos de <code class="docutils literal notranslate"><span class="pre">FSharp</span></code>:</p>
+<p><em><strong>Com apenas um parâmetro</strong></em></p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">addOne</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span> 
+</pre></div>
+</div>
+<p>No caso à cima o temos o parâmetro a do tipo int que está sendo somado com 1, a+1, que então retorna o valor da expressão de soma que é do tipo int, por esse motivo a assinatura da função é <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code>.</p>
+<p><em><strong>Com mais de um parâmetro</strong></em></p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">multiply</span> <span class="n">a</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="n">multiply</span> <span class="mi">3</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Nesse caso a função recebe dois parâmetros <code class="docutils literal notranslate"><span class="pre">a</span></code> e <code class="docutils literal notranslate"><span class="pre">b</span></code> ambos inteiros onde são multiplicados no corpo da função, retornando o resultado da expressão como um inteiro. Agora as coisas mudam um pouco pois temos 2 parâmetros e isso é representado da seguinte maneira <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">-&gt;</span> <span class="pre">int</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code>, ou seja, <em><strong>‘a</strong></em> mapeia para <em><strong>‘b</strong></em> e então mapeia para <em><strong>‘c</strong></em>, sendo <em><strong>‘c</strong></em> o resultado da expressão. Essa tecnica se chama <em><strong>currying</strong></em> e é a técnica que transforma todos os parâmetros em uma cadeia de funções, mas não se preocupe isso vai ser explicada um pouco mais a baixo, o que necessário entender nesse momento é que sempre o último tipo da esquerda vai ser o retorno e os tipos que sobraram à esquerda são os parâmetros.</p>
+<p><em><strong>Um parâmetro só que 2</strong></em>
+A mesma função pode ser escrita de uma outra forma usando uma outra estrutura de dados a tupla, veja como fica:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">multiply</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">)</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="n">multiply</span> <span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Nesse caso temos uma <code class="docutils literal notranslate"><span class="pre">tupla</span></code> com dois inteiros e que retona um inteiro, podendo ser representado como <code class="docutils literal notranslate"><span class="pre">(int*int)</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code></p>
+</div>
+<div class="section" id="escopo-lexico-ou-estatico">
+<h3>Escopo léxico ou estático<a class="headerlink" href="#escopo-lexico-ou-estatico" title="Permalink to this headline">¶</a></h3>
+<p>Do latim leksikós, do inglês lexicon, do espanhol léxico, do alemão Lexikon …</p>
+<hr class="docutils" />
+<p>Escopo é a região onde uma variável ou função pode ser acessada, já o escopo léxico/estático diferente do escopo dinâmico utiliza a variável ou função no momento em que a função foi criada não no momento em que foi chamada.<br />
+vejá o exemplo à baixo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">sumFunction</span> <span class="o">=</span>                                    <span class="c1">//───────────────────────────────────┐</span>
+    <span class="k">let</span> <span class="nv">variable</span> <span class="o">=</span> <span class="mi">1</span>                                  <span class="c1">//────┐                              |</span>
+    <span class="k">let</span> <span class="nv">sumWithVariable</span> <span class="n">param</span> <span class="o">=</span> <span class="n">param</span> <span class="o">+</span> <span class="n">variable</span>      <span class="c1">//──────⯈ Escopo da variable 1       </span>
+    <span class="k">let</span> <span class="nv">variable</span> <span class="o">=</span> <span class="mi">2</span>                                  <span class="c1">//────┐                              ├──⯈ Escopo principal</span>
+    <span class="n">sumWithVariable</span>                                   <span class="c1">//──────⯈ Escopo da variable 2       </span>
+                                                      <span class="c1">//───────────────────────────────────┘</span>
+
+<span class="n">sumFunction</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>No exemplo temos três escopos, o primeiro da função principal a <code class="docutils literal notranslate"><span class="pre">sumFunction</span></code> e engloba todo o corpo da função, o segundo escopo é criado assim que a variável <code class="docutils literal notranslate"><span class="pre">variable</span></code> é criada engloba a função <code class="docutils literal notranslate"><span class="pre">sumWithVariable</span></code> e termina assim que a variavel <code class="docutils literal notranslate"><span class="pre">variable</span></code> é criada novamente, por fim o terceiro escopo é a segunda vez em que a variavel <code class="docutils literal notranslate"><span class="pre">variable</span></code> é criada.<br />
+Se analisarmos os dois escopos internos vemos que no primeiro temos a variavel <code class="docutils literal notranslate"><span class="pre">variable</span></code> com o valor <em><strong>1</strong></em> e a criação de uma função <code class="docutils literal notranslate"><span class="pre">sumWithVariable</span></code> que recebe um parâmetro e soma com o valor da variável <code class="docutils literal notranslate"><span class="pre">variable</span></code>, já o segundo escopo tem a variável <code class="docutils literal notranslate"><span class="pre">variable</span></code> com o valor <em><strong>2</strong></em> e a chamada da função <code class="docutils literal notranslate"><span class="pre">sumWithVariable</span></code>. Qual o resultado da função <code class="docutils literal notranslate"><span class="pre">sumFunction</span></code>? Se você pensou em <em><strong>4</strong></em> você está correto, Fsharp se utiliza de escopos léxicos/estáticos dessa forma o valor da variável <code class="docutils literal notranslate"><span class="pre">variable</span></code> assim que a função <code class="docutils literal notranslate"><span class="pre">sumFunction</span></code> foi criada era <em><strong>1</strong></em>.</p>
+</div>
+</div>
+<div class="section" id="cade-as-classes">
+<h2>Cadê as Classes?<a class="headerlink" href="#cade-as-classes" title="Permalink to this headline">¶</a></h2>
+<p>Estrutura de dados</p>
+</div>
+<div class="section" id="intero-inter-funciona-com-net">
+<h2>Intero… Inter… Funciona com <code class="docutils literal notranslate"><span class="pre">.Net</span></code><a class="headerlink" href="#intero-inter-funciona-com-net" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: ".net-fsharp"
+        },
+        kernelOptions: {
+            kernelName: ".net-fsharp",
+            path: "./docs/fsharp"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '.net-fsharp'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../readme.html" title="previous page">Devman</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Nathan Branco Caracho<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
