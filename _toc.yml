@@ -2,3 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: readme
+
+- part: Fsharp
+  chapters: 
+    - file: docs/fsharp/fsharp_para_leigos_apressados.ipynb
