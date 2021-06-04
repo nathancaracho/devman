@@ -4,5 +4,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    volumes:
+      - ./:/src
     working_dir: /home
-    command: bash -c "pip install jupyter-book && jupyter-book build ./"
+    command: bash -c "pip install jupyter-book && jupyter-book build /src"
