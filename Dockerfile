@@ -50,11 +50,6 @@ RUN dotnet_sdk_version=5.0.300 \
     # Trigger first run experience by running arbitrary cmd
     && dotnet help
 
-## extentions 
-RUN pip install JLDracula
-RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
-# end
-
 # Install lastest build from master branch of Microsoft.DotNet.Interactive from myget
 RUN dotnet tool install -g Microsoft.dotnet-interactive
 #latest stable from nuget.org
@@ -69,4 +64,4 @@ RUN dotnet interactive jupyter install
 # Enable telemetry once we install jupyter for the image
 ENV DOTNET_TRY_CLI_TELEMETRY_OPTOUT=false
 
-
+COPY . ${HOME}
