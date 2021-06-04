@@ -323,122 +323,8 @@
 <p>A palavra chave <code class="docutils literal notranslate"><span class="pre">let</span></code> responsável pela associação de valores em variáveis em <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> que são por padrão <em><strong>imutáveis</strong></em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">xambre</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">printf</span> <span class="s">&quot;se liga no xambre: %i&quot;</span> <span class="n">xambre</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<div>
-    <div id='dotnet-interactive-this-cell-38.Microsoft.DotNet.Interactive.Http.HttpPort' style='display: none'>
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
-    </div>
-    <script type='text/javascript'>
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://172.18.0.2:1000/", "http://127.0.0.1:1000/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '38.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
-    </script>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>se liga no xambre: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">variavel</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">printf</span> <span class="s">&quot;se liga na variável: %i&quot;</span> <span class="n">variavel</span>
 </pre></div>
 </div>
 </div>
@@ -457,14 +343,6 @@ Pela palavra chave <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>se liga no xambre: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>Mas se tentarmos alterar uma variável que não é <code class="docutils literal notranslate"><span class="pre">mutável</span></code> o que acontece?</strong></p>
 <div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Typecheck error This value is not mutable. Consider using the mutable keyword, e.g. 
@@ -475,14 +353,6 @@ Pela palavra chave <code class="docutils literal notranslate"><span class="pre">
 <div class="cell_input docutils container">
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">notMutableXambre</span> <span class="o">=</span> <span class="mi">13</span>
 <span class="n">notMutableXambre</span> <span class="o">&lt;-</span> <span class="mi">15</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>input.fsx (2,1)-(2,23) typecheck error This value is not mutable. Consider using the mutable keyword, e.g. &#39;let mutable notMutableXambre = expression&#39;.
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -655,11 +525,11 @@ vejá o exemplo à baixo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">sumFunction</span> <span class="o">=</span>                                    <span class="c1">//───────────────────────────────────┐</span>
-    <span class="k">let</span> <span class="nv">variable</span> <span class="o">=</span> <span class="mi">1</span>                                  <span class="c1">//────┐                              |</span>
+    <span class="k">let</span> <span class="nv">variable</span> <span class="o">=</span> <span class="mi">1</span>                                  <span class="c1">//────┐                            </span>
     <span class="k">let</span> <span class="nv">sumWithVariable</span> <span class="n">param</span> <span class="o">=</span> <span class="n">param</span> <span class="o">+</span> <span class="n">variable</span>      <span class="c1">//──────⯈ Escopo da variable 1       </span>
-    <span class="k">let</span> <span class="nv">variable</span> <span class="o">=</span> <span class="mi">2</span>                                  <span class="c1">//────┐                              ├──⯈ Escopo principal</span>
+    <span class="k">let</span> <span class="nv">variable</span> <span class="o">=</span> <span class="mi">2</span>                                  <span class="c1">//────┐                            ├──⯈ Escopo principal</span>
     <span class="n">sumWithVariable</span>                                   <span class="c1">//──────⯈ Escopo da variable 2       </span>
-                                                      <span class="c1">//───────────────────────────────────┘</span>
+                                                      <span class="c1">//────────────────────────────────┘</span>
 
 <span class="n">sumFunction</span> <span class="mi">3</span>
 </pre></div>
