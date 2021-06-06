@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FSharp para leigos e apressados (WIP)</title>
+    <title>FSharp para leigos e apressados (WIP) &#8212; Devman</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,6 +72,8 @@
       
       <img src="../../_static/logo.svg" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title">Devman</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -283,6 +285,11 @@
      Escopo léxico ou estático
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#curriyng">
+     Curriyng
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -323,8 +330,8 @@
 <p>A palavra chave <code class="docutils literal notranslate"><span class="pre">let</span></code> responsável pela associação de valores em variáveis em <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> que são por padrão <em><strong>imutáveis</strong></em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">variavel</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">printf</span> <span class="s">&quot;se liga na variável: %i&quot;</span> <span class="n">variavel</span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">varable</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">printf</span> <span class="s">&quot;se liga na variável: %i&quot;</span> <span class="n">varable</span>
 </pre></div>
 </div>
 </div>
@@ -337,9 +344,9 @@ Pela palavra chave <code class="docutils literal notranslate"><span class="pre">
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">mutable</span> <span class="n">xambreOne</span>  <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">xambreOne</span> <span class="o">&lt;-</span> <span class="mi">2</span>
-<span class="n">printf</span> <span class="s">&quot;se liga no xambre: %i&quot;</span> <span class="n">xambreOne</span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">mutable</span> <span class="n">variableWithOne</span>  <span class="o">=</span> <span class="mi">1</span> 
+<span class="n">variableWithOne</span> <span class="o">&lt;-</span> <span class="mi">2</span>
+<span class="n">printf</span> <span class="s">&quot;se liga na variável: %i&quot;</span> <span class="n">variableWithOne</span>
 </pre></div>
 </div>
 </div>
@@ -351,8 +358,8 @@ Pela palavra chave <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">notMutableXambre</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">notMutableXambre</span> <span class="o">&lt;-</span> <span class="mi">15</span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">notMutableVariable</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">notMutableVariable</span> <span class="o">&lt;-</span> <span class="mi">15</span>
 </pre></div>
 </div>
 </div>
@@ -364,15 +371,15 @@ Pela palavra chave <code class="docutils literal notranslate"><span class="pre">
 <div><p><strong>O que é o tipo unit?</strong><br />
 O tipo <code class="docutils literal notranslate"><span class="pre">unit</span></code> é utilizado como um tipo “vazio” e indica a ausência de um valor real, normalmente utilizado em funções que nâo tem um retorno.</p>
 </div></blockquote>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">printXambre</span> <span class="o">=</span> <span class="c1">//unit</span>
-    <span class="n">printf</span> <span class="s">&quot;xambre&quot;</span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">printSomeThing</span> <span class="o">=</span> <span class="c1">//unit</span>
+    <span class="n">printf</span> <span class="s">&quot;some thing&quot;</span>
 </pre></div>
 </div>
 <blockquote>
 <div><p><strong>Mas é possível indicar qual o tipo da variável?</strong><br />
 Sim, basta adicionar o operador <code class="docutils literal notranslate"><span class="pre">:</span></code> logo após o nome da variável.</p>
 </div></blockquote>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">xambre</span> <span class="o">:</span> <span class="n">int</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">variable</span> <span class="o">:</span> <span class="n">int</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <div class="section" id="usando-a-inferencia">
@@ -535,9 +542,188 @@ vejá o exemplo à baixo:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div>
+    <div id='dotnet-interactive-this-cell-13008.Microsoft.DotNet.Interactive.Http.HttpPort' style='display: none'>
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+    <script type='text/javascript'>
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://192.168.1.31:1024/", "http://127.0.0.1:1024/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '13008.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div><div class="output text_html"><div class="dni-plaintext">4</div></div></div>
 </div>
 <p>No exemplo temos três escopos, o primeiro da função principal a <code class="docutils literal notranslate"><span class="pre">sumFunction</span></code> e engloba todo o corpo da função, o segundo escopo é criado assim que a variável <code class="docutils literal notranslate"><span class="pre">variable</span></code> é criada engloba a função <code class="docutils literal notranslate"><span class="pre">sumWithVariable</span></code> e termina assim que a variavel <code class="docutils literal notranslate"><span class="pre">variable</span></code> é criada novamente, por fim o terceiro escopo é a segunda vez em que a variavel <code class="docutils literal notranslate"><span class="pre">variable</span></code> é criada.<br />
 Se analisarmos os dois escopos internos vemos que no primeiro temos a variavel <code class="docutils literal notranslate"><span class="pre">variable</span></code> com o valor <em><strong>1</strong></em> e a criação de uma função <code class="docutils literal notranslate"><span class="pre">sumWithVariable</span></code> que recebe um parâmetro e soma com o valor da variável <code class="docutils literal notranslate"><span class="pre">variable</span></code>, já o segundo escopo tem a variável <code class="docutils literal notranslate"><span class="pre">variable</span></code> com o valor <em><strong>2</strong></em> e a chamada da função <code class="docutils literal notranslate"><span class="pre">sumWithVariable</span></code>. Qual o resultado da função <code class="docutils literal notranslate"><span class="pre">sumFunction</span></code>? Se você pensou em <em><strong>4</strong></em> você está correto, Fsharp se utiliza de escopos léxicos/estáticos dessa forma o valor da variável <code class="docutils literal notranslate"><span class="pre">variable</span></code> assim que a função <code class="docutils literal notranslate"><span class="pre">sumFunction</span></code> foi criada era <em><strong>1</strong></em>.</p>
+</div>
+<div class="section" id="curriyng">
+<h3>Curriyng<a class="headerlink" href="#curriyng" title="Permalink to this headline">¶</a></h3>
+<p>É de comer isso ?</p>
+<hr class="docutils" />
+<p>Curriyng é básicamente uma técnica onde uma função de <code class="docutils literal notranslate"><span class="pre">n</span></code> parâmetros é transformada num encadeamentos de funções lambda <code class="docutils literal notranslate"><span class="pre">λ</span></code>, ou seja, tranforma isso <code class="docutils literal notranslate"><span class="pre">(a*b)</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code> para <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">c</span></code>. Sim isso é exatamente as assinaturas que foram apresentadas até agora, então isso significa que todas as funções de multiplos parâmetros são curriyng por padrão em FSharp.<br />
+Mas o que isso significa na prática? Utilizar curriyng facilita a composição de funções e também possibilita a aplicação parcial de funções complexas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// decimal -&gt; decimal -&gt; decimal</span>
+<span class="k">let</span> <span class="nv">applyDiscount</span> <span class="n">percentage</span> <span class="n">value</span> <span class="o">=</span> 
+     <span class="n">percentage</span> <span class="o">/</span> <span class="mi">100M</span> <span class="o">*</span> <span class="n">value</span> <span class="o">+</span> <span class="n">value</span>
+
+<span class="c1">// decimal -&gt; decimal</span>
+<span class="k">let</span> <span class="nv">apply5OffTo</span> <span class="o">=</span> <span class="n">applyDiscount</span> <span class="o">-</span><span class="mi">5M</span>
+
+<span class="n">apply5OffTo</span> <span class="mi">100M</span>
+<span class="o">|&gt;</span> <span class="n">printf</span> <span class="s">&quot;The final price is %f&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The final price is 95.000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>No exemplo a cima temos a função applyDiscount que recebe dois parâmetros, percentage e value, no corpo da função é feita uma conta simples de porcentagem. Logo a baixo temos a função apply5OffTo que recebe o resultado applyDiscount com apenas um valor -5M, o que temos nesse caso é que a função applyDicount foi parcialmente aplicada e retornou uma nova função que já tinha o valor do parâmentro percentage aplicado em seu escopo.</p>
+<p>Fica mais fácil se pensar que por baixo dos panos algo parecido com isso é feito.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// decimal -&gt; decimal -&gt; decimal</span>
+<span class="k">let</span> <span class="nv">applyDiscount</span> <span class="n">percentage</span> <span class="o">=</span>
+     <span class="k">let</span> <span class="nv">innerApplyDiscount</span> <span class="n">value</span> <span class="o">=</span>   
+         <span class="n">percentage</span> <span class="o">/</span> <span class="mi">100M</span> <span class="o">*</span> <span class="n">value</span> <span class="o">+</span> <span class="n">value</span>
+     <span class="n">innerApplyDiscount</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Ponto importante ⚠ :<br />
+Não significa que o compilador realmente cria um encadeamento de funções, na verdade o compilidador do <code class="docutils literal notranslate"><span class="pre">FSharp</span></code> segue uma estratégia um pouco diferente. Basicamente o compilador “<em><strong>copia</strong></em>” o corpo da função pricipal e “<em><strong>Cola</strong></em>” na função secundária, na verdade o compilador cria duas classes onde a classe secundária tem como parâmetro do construtor o primeiro parâmentro da função secundária e no metodo <code class="docutils literal notranslate"><span class="pre">invoke</span></code> temos o segundo parâmetro.
+No exemplo anterior teriamos algo como:</p>
+</div></blockquote>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span>    <span class="k">internal</span> <span class="k">sealed</span> <span class="k">class</span> <span class="nc">apply5OffTo</span> <span class="p">:</span> <span class="n">FSharpFunc</span><span class="p">&lt;</span><span class="kt">decimal</span><span class="p">,</span> <span class="kt">decimal</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">decimal</span> <span class="n">percentage</span><span class="p">;</span>
+
+ 
+        <span class="k">internal</span> <span class="nf">apply5OffTo</span><span class="p">(</span><span class="kt">decimal</span> <span class="n">percentage</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">percentage</span> <span class="p">=</span> <span class="n">percentage</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="kt">decimal</span> <span class="nf">Invoke</span><span class="p">(</span><span class="kt">decimal</span> <span class="k">value</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">percentage</span> <span class="p">/</span> <span class="m">100</span><span class="n">m</span> <span class="p">*</span> <span class="k">value</span> <span class="p">+</span> <span class="k">value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">applyDiscount</span> <span class="n">percentage</span> <span class="n">value</span> <span class="o">=</span> 
+     <span class="n">percentage</span> <span class="o">/</span> <span class="mi">100M</span> <span class="o">*</span> <span class="n">value</span> <span class="o">+</span> <span class="n">value</span>
+
+<span class="k">let</span> <span class="o">(%)</span> <span class="o">=</span> <span class="n">applyDiscount</span>
+<span class="o">-</span><span class="mi">5M</span> <span class="o">%</span> <span class="mi">100M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="dni-plaintext">95.00</div></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="cade-as-classes">
@@ -586,7 +772,7 @@ Se analisarmos os dois escopos internos vemos que no primeiro temos a variavel <
         
           By Nathan Branco Caracho<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
